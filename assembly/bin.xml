@@ -6,14 +6,16 @@
   <formats>
     <format>zip</format>
   </formats>
-  <fileSets>
-    <fileSet>
-      <directory>${project.basedir}</directory>
+  
+  <files>
+  	<file>
+      <source>license.txt</source>
       <outputDirectory>/</outputDirectory>
-      <includes>
-        <include>license.txt</include>
-      </includes>
-    </fileSet>
+      <filtered>true</filtered>
+    </file>
+  </files>
+  
+  <fileSets>
     <fileSet>
       <directory>${project.build.directory}</directory>
       <outputDirectory>/</outputDirectory>

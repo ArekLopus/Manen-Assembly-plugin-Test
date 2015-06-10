@@ -37,7 +37,9 @@
 	         		</goals> 
     	     		<configuration>
     	     			<outputDirectory>${project.basedir}</outputDirectory>
-    	     			
+    	     			<filters>
+            				<filter>assembly/abc.properties</filter>
+          				</filters>
     	     			<formats>
     	     				<format>jar</format>
     	     			</formats> 
