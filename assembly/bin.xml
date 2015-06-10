@@ -1,0 +1,84 @@
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.3" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.3 http://maven.apache.org/xsd/assembly-1.1.3.xsd">
+  <id>bin</id>
+  <includeBaseDirectory>false</includeBaseDirectory> 
+  <formats>
+    <format>zip</format>
+  </formats>
+  <fileSets>
+    <fileSet>
+      <directory>${project.basedir}</directory>
+      <outputDirectory>/</outputDirectory>
+      <includes>
+        <include>license.txt</include>
+      </includes>
+    </fileSet>
+    <fileSet>
+      <directory>${project.build.directory}</directory>
+      <outputDirectory>/</outputDirectory>
+      <includes>
+        <include>*.jar</include>
+      </includes>
+    </fileSet>
+    <fileSet>
+      <directory>${project.basedir}/dir1</directory>
+      <outputDirectory>dir1</outputDirectory>
+	</fileSet>
+	
+	<fileSet>
+      <directory>files</directory>
+      <outputDirectory>includedConcreteFile</outputDirectory>
+	  <includes> 
+	  	<include>a.txt</include>
+	  </includes>
+	</fileSet>
+	<fileSet>
+      <directory>files</directory>
+      <outputDirectory>includedAllTXT</outputDirectory>
+	  <includes> 
+	  	<include>**/*.txt</include>
+	  </includes>
+	</fileSet>
+	<fileSet>
+      <directory>files</directory>
+      <outputDirectory>excludedAllTXT</outputDirectory>
+	  <excludes> 
+	  	<exclude>**/*.txt</exclude>
+	  </excludes> 
+    </fileSet>
+    <fileSet>
+      <directory>files</directory>
+      <outputDirectory>excludedSubdirs</outputDirectory>
+	  <excludes> 
+	  	<exclude>**/files2/</exclude>
+	  </excludes> 
+    </fileSet>
+  </fileSets>
+  
+  <dependencySets> 
+  
+    <dependencySet> 
+      <unpack>true</unpack>
+      <unpackOptions> 
+   		<includes> 
+          <include>org/h2/api/**/*</include>
+        </includes>
+      </unpackOptions>  
+      <outputDirectory>libs</outputDirectory> 
+      <includes> 
+        <include>com.h2database:h2</include> 
+      </includes> 
+    </dependencySet> 
+    
+    <dependencySet> 
+      <outputDirectory>libs</outputDirectory> 
+      <includes> 
+        <include>com.h2database:h2</include> 
+      </includes> 
+    </dependencySet>
+  </dependencySets> 
+  
+   
+  
+</assembly>
